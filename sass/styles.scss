@@ -96,6 +96,10 @@
 			padding: 3px 0px;
 			width: 180px;
 			text-transform: uppercase;
+
+			@media(max-width: $mobile-min){
+				width: 150px;
+			}
 		}
 
 	}
@@ -171,6 +175,7 @@ body{
 
 	background: #ffffff;
 
+	padding-top: 185px;
 }
 
 .tac{
@@ -276,10 +281,10 @@ body{
 
 	p{
 		margin: 0;
-		padding: 0;
+		padding: 0 10px;
 		display: inline;
 
-		@media(max-width: $mobile){
+		@media(max-width: $tablet){
 			display: block;
 		}
 	}
@@ -440,19 +445,46 @@ body{
 
 .header{
 	margin-bottom: -30px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 20;
+	background: #ffffff;
 
 	.row{
 		position: relative;
+		padding-top: 0;
+		padding-bottom: 0;
+		@media(max-width: $mobile){
+			padding-top: 15px;
+		}
 	}
 
 	&__btn_wrap{
 		position: absolute;
-		top: 76px;
+		top: 35px;
 		right: $st_padd;
+		z-index: 12;
 
 		@media(max-width: $mobile){
 			position: static;
 			text-align: center;
+			padding: 0 80px;
+		}
+
+		@media(max-width: $mobile-min){
+			padding: 0;
+		}
+	}
+
+	&.fix{
+		@include box-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+		padding-bottom: 15px;
+		position: fixed;
+
+		.logo{
+			display: none;
 		}
 	}
 }
@@ -462,11 +494,10 @@ body{
 	width: 180px;
 	text-align: center;
 	font-size: 0;
+	margin: 0;
 	line-height: 0;
 	vertical-align: top;
 	padding: 11px 0;
-	margin-top: -10px;
-	margin-bottom: 10px;
 
 	@media(max-width: $mobile){
 		margin: 0;
@@ -476,7 +507,8 @@ body{
 	&__item{
 		display: inline-block;
 		padding: 0 10px;
-		border-right: solid 1px #bfbfbf;
+		// border-right: solid 1px #bfbfbf;
+		border-right: solid 1px #7f7f7f;
 		border-left: solid 1px #7f7f7f;
 		
 		&:first-of-type{
@@ -542,6 +574,7 @@ body{
 		@media(min-width: $mobile + 1){
 			display: table !important;
 			width: 100%;
+			max-width: 600px;
 			opacity: 1 !important;
 		}
 
@@ -613,7 +646,6 @@ body{
 	z-index: 10;
 	text-align: center;
 	margin: 0;
-	margin-top: 40px;
 	float: left;
 	width: 100%;
 
@@ -817,7 +849,8 @@ body{
 		border-bottom: solid 2px $link_color;
 		display: inline-block;
 		font-weight: 600;
-		background: url($base_img + 'telegram.png') top center no-repeat;
+		background: url($base_img + 'telegram.svg') top center no-repeat;
+		background-size: 69px 69px;
 	}
 
 	a:hover{
@@ -826,6 +859,7 @@ body{
 }
 
 .footer{
+	border-top: solid 2px $dop_bd;
 	.row{
 		padding-top: $st_padd;
 		padding-bottom: $st_padd;
@@ -1523,7 +1557,8 @@ body{
 			padding: 0;
 			padding-left: 100px;
 			height: 80px;
-			background: url($base_img + 'git.png') center left no-repeat;
+			background: url($base_img + 'git.svg') center left no-repeat;
+			background-size: 83px 80px;
 			display: flex;
 			align-items: center;
 		}

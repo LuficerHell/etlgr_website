@@ -2,6 +2,8 @@
 
 
 $(document).ready(function () {
+    var win_h = $(window).height(); 
+    var head_h = 40;
 
     $('.menu__gamb').click(function(){
       $(this).toggleClass('open');
@@ -58,6 +60,16 @@ $(document).ready(function () {
       $('.menu__wrap').removeClass('open').fadeOut();
     });
 
+    $(window).scroll(function(){
+      if ($(window).scrollTop() > head_h) {
+        $('.header').addClass('fix');
+        $('.body-wrap').addClass('fix');
+      }
 
+      else{
+        $('.header').removeClass('fix');
+        $('.body-wrap').removeClass('fix');
+      }
+    });
   }
 );
